@@ -1,19 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { Product } from '../../../product/models/product';
-import { ProductService } from '../../../product/services/product.service';
+import { ActivatedRoute } from "@angular/router";
+import { Component, OnInit } from "@angular/core";
+import { Product } from "../../../product/models/product";
+import { map } from "rxjs/operators";
 
 @Component({
-  selector: 'app-product-list',
-  templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  selector: "app-product-list",
+  templateUrl: "./product-list.component.html",
+  styleUrls: ["./product-list.component.css"]
 })
 export class ProductListComponent implements OnInit {
-  public products: Product[] = []
+  public products: Product[] = [];
 
-  constructor(private productSrv: ProductService) { }
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.productSrv.getProducts().subscribe(products => this.products = products);
+    this.route.data
+      .pipe(map(data => data["products"]))
+      .subscribe(res => (this.products = res));
   }
-
 }
