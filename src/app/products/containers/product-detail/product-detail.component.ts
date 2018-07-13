@@ -1,23 +1,23 @@
-import { Product } from './../../../product/models/product';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { ProductService } from '../../../product/services/product.service';
+import { Product } from "./../../../product/models/product";
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { map } from "rxjs/operators";
 
 @Component({
-  selector: 'app-product-detail',
-  templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.css']
+  selector: "app-product-detail",
+  templateUrl: "./product-detail.component.html",
+  styleUrls: ["./product-detail.component.css"]
 })
 export class ProductDetailComponent implements OnInit {
   public product: Product = new Product();
 
-  constructor(private route: ActivatedRoute,private productSrv:ProductService) { }
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
-    let id = this.route.snapshot.paramMap.get('id');
+    let id = this.route.snapshot.paramMap.get("id");
 
-    this.productSrv.getProduct(id)
-      .subscribe(product => this.product = product);
+    this.route.data
+      .pipe(map(data => data["product"]))
+      .subscribe(product => (this.product = product));
   }
-
 }

@@ -1,3 +1,4 @@
+import { ProductResolver } from "./resolvers/product.resolver";
 import { ProductsResolver } from "./resolvers/products.resolver";
 import { ProductListComponent } from "./../products/containers/product-list/product-list.component";
 import { NgModule } from "@angular/core";
@@ -12,7 +13,8 @@ const routes: Routes = [
   },
   {
     path: ":id",
-    component: ProductDetailComponent
+    component: ProductDetailComponent,
+    resolve: { product: ProductResolver }
   }
 ];
 
