@@ -1,4 +1,4 @@
-import { environment } from './../../../environments/environment.prod';
+import { environment } from './../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -14,6 +14,8 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   getProducts():Observable<Product[]> {
+    console.log(baseUrl);
+
     return this.http.get<Product[]>(baseUrl);
   }
 
