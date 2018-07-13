@@ -8,7 +8,7 @@
     </ng-template>
   </div>
   <img [attr.src]="product.image" [attr.alt]="product.name" class="card" width="500" height="500">
-  <div class="card-body" *ngIf="!details">
+  <div class="card-body" *ngIf="details">
     <p class="my-2">{{product.description}}</p>
   </div>
   <div class="card-footer">
