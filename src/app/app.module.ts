@@ -8,7 +8,7 @@ import { UiModule } from './ui/ui.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, UiModule,HttpClientModule],
+  imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }), AppRoutingModule, UiModule,HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
 })
