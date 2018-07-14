@@ -20,5 +20,40 @@
         "/assets/**"
       ]
     }
-  }]
+  }, {
+    "name": "externals",
+    "installMode": "prefetch",
+    "updateMode": "prefetch",
+    "resources": {
+      "urls": [
+        "https://ajax.googleapis.com/**",
+        "https://fonts.googleapis.com/**",
+        "https://fonts.gstatics.com/**",
+        "https://stackpatch.bootstrapcdn.com/**"
+      ]
+    }
+  }, {
+    "name": "images",
+    "installMode": "prefetch",
+    "updateMode": "prefetch",
+    "resources": {
+      "urls": [
+        "https://xxx.com/images/**"
+      ]
+    }
+  }],
+  "dataGroups": [{
+      "name": "rest-api",
+      "urls": [
+        "https://api.com/api/**"
+      ],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "maxSize": 100,
+        "maxAge": "1h",
+        "timeout": "5s"
+      }
+    }
+
+  ]
 }
