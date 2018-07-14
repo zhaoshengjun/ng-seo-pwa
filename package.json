@@ -7,9 +7,21 @@
     "build": "ng build ng-seo-pwa --prod && ng run ng-seo-pw",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "now-build": "true",
+    "now": "now deploy && now alias"
   },
   "private": true,
+  "now": {
+    "name": "ng-seo-pwa",
+    "alias": ["ng-seo-pwa.now.sh"],
+    "files": [
+      "dist",
+      "package.json",
+      "server.ts",
+      "tsconfig.json"
+    ]
+  },
   "dependencies": {
     "@angular/animations": "^6.0.3",
     "@angular/common": "^6.0.3",
