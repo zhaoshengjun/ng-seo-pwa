@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build ng-seo-pwa --prod && ng run ng-seo-pwa:server:production",
+    "start": "ts-node ./server",
+    "build": "ng build ng-seo-pwa --prod && ng run ng-seo-pw",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
